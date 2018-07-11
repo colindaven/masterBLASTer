@@ -20,7 +20,7 @@ protein_list = np.array([],dtype = 'str')
 for file in filelist:
     if file.startswith('blastout'):
         # only read non-empty files with blast hits
-        if os.path.getsize(file) > 0:
+        if os.path.getsize(f"temp/{file}") > 0:
             if (bestBLASTHitsOnly):
                 temp_table = pd.read_table(f"temp/{file}", delimiter = '\t', header = None, nrows = 1, usecols = [2])
             else:
